@@ -84,6 +84,8 @@ export class CheckersGame extends Game { // 3. dziedziczenie
   init() {
     super.init();
     this.#board.init();
+
+    // this.#board.fieldsList[0][0] = '';
     this.#printer.init({ boardData: this.#board.fieldsList })
   }
 
