@@ -177,6 +177,20 @@ export class Board { // 1. enkapsulacja
     return count;
   }
 
+  reset() {
+    this.#forEachFields((row, col) => {
+      this.setField(`${row}${col}`, null);
+    });
+  }
+
+  #forEachFields(callback) { // callback(row, col) 
+    for (let i = 0; i < this.#fieldsList.length; i++) {
+      for (let j = 0; j < this.#fieldsList.length; j++) {
+        callback(i, j);
+      }
+    }
+  }
+
   #isCorrectCoord = function (coord) {
     return /^[0-9]{2}$/i.test(coord);
   }
