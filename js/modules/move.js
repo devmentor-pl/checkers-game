@@ -21,9 +21,6 @@ export class Move {
     }
 
     const distance = {};
-    if (isCapture) {
-      distance.isCapture = true;
-    }
 
     if (row > 0) {
       if (col > 0) {
