@@ -122,6 +122,7 @@ export class CheckersGame extends Game { // 3. dziedziczenie
     this.#board.move(
       notation,
       playerIndex,
+      (capturesCount) => this.#incrementPlayerScore(playerIndex, capturesCount)
     );
 
     this.#moves.push({ notation });
@@ -153,6 +154,7 @@ export class CheckersGame extends Game { // 3. dziedziczenie
   #renderPanel() {
     this.#printer.renderPanel({
       activePlayerIndex: this.#getActivePlayerIndex(),
+      playersScore: this.#getPlayersScore()
     });
   }
 
