@@ -18,7 +18,11 @@ export class Board { // 1. enkapsulacja
   get fieldsList() {
     // tworzę kopię danych tylko do odczytu
     // nie chce pozwolić na modyfikację danych
-    // poza udostępnionym interfejsem tj. setField 
+    // poza udostępnionym interfejsem tj. setField
+    //
+    // zabezpieczenie przed:
+    // const fieldsList = board.fieldsList
+    // fieldsList[0][0] = new Field();
     const fieldsList = this.#fieldsList.map(row => {
       return Object.freeze([...row]);
     });

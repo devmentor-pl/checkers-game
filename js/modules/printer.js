@@ -33,7 +33,6 @@ export class CheckersDOMPrinter extends Printer {
     }
 
     renderBoard(data) {
-        console.log(data);
         this.#boardRef.innerHTML = '';
 
         data.forEach((row, rowIndex) => {
