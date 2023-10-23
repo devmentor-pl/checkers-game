@@ -1,5 +1,6 @@
 import { Piece } from './piece.js';
 import { Checker } from './checker.js';
+import { King } from './king.js';
 
 export class Field {
     #piece;
@@ -43,5 +44,9 @@ export class Field {
         }
 
         return false;
+    }
+
+    changeToKing() {
+        this.piece = new King(this.piece.playerIndex);
     }
 } 
