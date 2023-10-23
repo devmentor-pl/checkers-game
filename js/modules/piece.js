@@ -1,3 +1,5 @@
+import { Move } from './move.js';
+
 export class Piece { // klasa abstrakcyjna
   _player; // pole chronione (zamierzamy wykorzystać w dziecku)
 
@@ -23,5 +25,16 @@ export class Piece { // klasa abstrakcyjna
 
   get playerIndex() {
     return this._player;
+  }
+
+  get availableMoves() {
+    throw new Error('Implement this method!');
+  }
+
+  getMove(from, to, isCapture, inverse) { // SOLID: zasada podstawień Liskov
+    const move = Move.calculateMove(from, to, isCapture, inverse);
+    return this.availableMoves.find(avMove => {
+      return Move.isMatch(avMove, move);
+    });
   }
 }

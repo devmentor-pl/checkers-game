@@ -7,6 +7,18 @@ export class Printer { // umowny interfejs (w JS nie ma takiej struktury)
         this.#throwError();
     }
 
+    renderPanel(data) {
+        this.#throwError();
+    }
+
+    resetFields() {
+        this.#throwError();
+    }
+
+    selectFields(coords) {
+        this.#throwError();
+    }
+
     #throwError(message = 'Implement this method') {
         throw new Error(message)
     }
@@ -48,7 +60,32 @@ export class CheckersDOMPrinter extends Printer {
         })
     }
 
+    renderPanel({ activePlayerIndex }) {
+        const { appContainerRef } = this.settings;
 
+        const panelRef = appContainerRef.previousElementSibling;
+
+        // tworzę wygodną strukturę danych,
+        // która zastępuję if ... else
+        const playersIcons = ['./assets/piece-white.svg', './assets/piece-red.svg'];
+
+        panelRef.querySelector('img').src = playersIcons[activePlayerIndex];
+    }
+
+    selectFields(coords) {
+        const { appContainerRef } = this.settings;
+
+        coords.forEach(coord => {
+            const field = appContainerRef.querySelector(`.c${coord}`);
+            field.classList.add('selected');
+        });
+    }
+
+    resetFields() {
+        const { appContainerRef } = this.settings;
+        const cellsRef = appContainerRef.querySelectorAll(`.cell.selected`);
+        cellsRef.forEach(cellRef => cellRef.classList.remove('selected'));
+    }
 
     #createBoard() {
         const div = document.createElement('div');
