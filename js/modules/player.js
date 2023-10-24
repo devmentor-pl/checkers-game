@@ -1,5 +1,6 @@
 export class Player {
     #name;
+    #score = 0;
 
     constructor(name) {
         this.name = name;
@@ -12,5 +13,13 @@ export class Player {
 
     set name(value) {
         this.#name = value;
+    }
+
+    get score() {
+        return this.#score;
+    }
+
+    set score(value) {
+        this.#score = value
     }
 }
