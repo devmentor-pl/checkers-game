@@ -6,7 +6,7 @@ html {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box
 }
 
 main {
@@ -68,59 +68,67 @@ aside p {
   display: grid;
   grid-template-columns: repeat(10, 70px); /* Updated for 10 columns */
   width: 732px; /* Updated width for 10 squares */
-  height: 732px; /* Updated height for 10 squares */
+  height: 732px; /* Updated width for 10 squares */
   border: 16px solid #1c1c1c;
 }
 
-#board div {
+#board > div {
   width: 70px;
   height: 70px;
 }
 
 /* Alternating pattern for odd rows */
-#board div:nth-child(odd):nth-child(-n + 10),
-#board div:nth-child(even):nth-child(n + 11):nth-child(-n + 20),
-#board div:nth-child(odd):nth-child(n + 21):nth-child(-n + 30),
-#board div:nth-child(even):nth-child(n + 31):nth-child(-n + 40),
-#board div:nth-child(odd):nth-child(n + 41):nth-child(-n + 50),
-#board div:nth-child(even):nth-child(n + 51):nth-child(-n + 60),
-#board div:nth-child(odd):nth-child(n + 61):nth-child(-n + 70),
-#board div:nth-child(even):nth-child(n + 71):nth-child(-n + 80),
-#board div:nth-child(odd):nth-child(n + 81):nth-child(-n + 90),
-#board div:nth-child(even):nth-child(n + 91):nth-child(-n + 100) {
+#board >  div:nth-child(odd):nth-child(-n + 10),
+#board >  div:nth-child(even):nth-child(n + 11):nth-child(-n + 20),
+#board >  div:nth-child(odd):nth-child(n + 21):nth-child(-n + 30),
+#board >  div:nth-child(even):nth-child(n + 31):nth-child(-n + 40),
+#board >  div:nth-child(odd):nth-child(n + 41):nth-child(-n + 50),
+#board >  div:nth-child(even):nth-child(n + 51):nth-child(-n + 60),
+#board >  div:nth-child(odd):nth-child(n + 61):nth-child(-n + 70),
+#board >  div:nth-child(even):nth-child(n + 71):nth-child(-n + 80),
+#board >  div:nth-child(odd):nth-child(n + 81):nth-child(-n + 90),
+#board >  div:nth-child(even):nth-child(n + 91):nth-child(-n + 100) {
   background-color: #e7c673;
 }
 
 /* Alternating pattern for even rows */
-#board div:nth-child(even):nth-child(-n + 10),
-#board div:nth-child(odd):nth-child(n + 11):nth-child(-n + 20),
-#board div:nth-child(even):nth-child(n + 21):nth-child(-n + 30),
-#board div:nth-child(odd):nth-child(n + 31):nth-child(-n + 40),
-#board div:nth-child(even):nth-child(n + 41):nth-child(-n + 50),
-#board div:nth-child(odd):nth-child(n + 51):nth-child(-n + 60),
-#board div:nth-child(even):nth-child(n + 61):nth-child(-n + 70),
-#board div:nth-child(odd):nth-child(n + 71):nth-child(-n + 80),
-#board div:nth-child(even):nth-child(n + 81):nth-child(-n + 90),
-#board div:nth-child(odd):nth-child(n + 91):nth-child(-n + 100) {
+#board >  div:nth-child(even):nth-child(-n + 10),
+#board >  div:nth-child(odd):nth-child(n + 11):nth-child(-n + 20),
+#board >  div:nth-child(even):nth-child(n + 21):nth-child(-n + 30),
+#board >  div:nth-child(odd):nth-child(n + 31):nth-child(-n + 40),
+#board >  div:nth-child(even):nth-child(n + 41):nth-child(-n + 50),
+#board >  div:nth-child(odd):nth-child(n + 51):nth-child(-n + 60),
+#board >  div:nth-child(even):nth-child(n + 61):nth-child(-n + 70),
+#board >  div:nth-child(odd):nth-child(n + 71):nth-child(-n + 80),
+#board > div:nth-child(even):nth-child(n + 81):nth-child(-n + 90),
+#board >  div:nth-child(odd):nth-child(n + 91):nth-child(-n + 100) {
   background-color: #e1ab1f;
 }
-
+.cell.selected, /* MB */
 .active-field {
   border: 2px solid #1c1c1c;
 }
 
+.piece { /* MB */
+  height: 100%;
+}
+
+.checker.p1, /* MB */
 .piece__red {
   background: url("./assets/piece-red.svg") no-repeat center;
 }
 
+.checker.p0, /* MB */
 .piece__white {
   background: url("./assets/piece-white.svg") no-repeat center;
 }
 
+.king.p1, /* MB */
 .king__red {
   background: url("./assets/piece-red-king.svg") no-repeat center;
 }
 
+.king.p0, /* MB */
 .king__white {
   background: url("./assets/piece-white-king.svg") no-repeat center;
 }
@@ -134,4 +142,14 @@ aside p {
   height: 70px;
   display: inline-block;
   background-size: contain;
+  position: relative;
+}
+
+.coord { /* mb */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: blue;
 }
