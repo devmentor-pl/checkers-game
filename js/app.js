@@ -48,7 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
       game.move(`${game.selectedPiece}-${coord}`);
 
       if (game.isGameOver()) {
-        alert(`Wygrywa gracz: ${game.getLastActivePlayer().name}!`)
+        const restart = confirm(
+          `Wygrywa gracz: ${game.getLastActivePlayer().name}!`
+          + '\n\nCzy chcesz zagrać ponownie?'
+          + '\n[OK] - TAK, [Anuluj] - NIE');
+
+        if (restart) {
+          game.restart();
+        }
       }
     }
   })

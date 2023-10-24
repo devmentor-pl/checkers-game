@@ -26,7 +26,7 @@ export class Printer { // umowny interfejs (w JS nie ma takiej struktury)
 
 
 export class CheckersDOMPrinter extends Printer {
-    #developerMode = true; // Feature Flag
+    #developerMode = false; // Feature Flag
 
     #boardRef;
 
