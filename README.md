@@ -6,9 +6,10 @@
 
 - przekażę Ci jak najwięcej teoretycznych zagadnień z OOP na bazie działającej gry
 - poznasz jedno z podejść do rozwiązywania problemów algorytmicznych
+- **będziesz mógł zbudować zaawansowany i wymagający projekt do portfolio**
 - pokażę Ci kilka mniej popularnych rozwiązań dostępnych w języku JavaScript
 - zaoszczędzę Twój czas:
-  - mam przygotowany kod – będę go kopiował i omawiał
+  - mam przygotowany kod – będę go omawiał
   - koncepcję opracowałem wcześniej (to nie jest trywialne zadanie!)
 
 
@@ -35,3 +36,4 @@
 
 - nie przepisywać moich rozwiązań
 - obejrzeć nagranie, a potem napisać kod z własnym rozwiązaniem
+- usprawniać kod itereacyjnie - rozwiązać problem, a potem usprawniać kod
