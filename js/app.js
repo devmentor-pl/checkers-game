@@ -46,6 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
       // wykonaj ruch
       const { coord } = e.target.dataset;
       game.move(`${game.selectedPiece}-${coord}`);
+
+      if (game.isGameOver()) {
+        alert(`Wygrywa gracz: ${game.getLastActivePlayer().name}!`)
+      }
     }
   })
 
