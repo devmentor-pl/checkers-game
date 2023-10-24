@@ -1,6 +1,6 @@
 > :man_technologist: Mateusz Bogolubow, [devmentor.pl/rozmowa](https://devmentor.pl/rozmowa).
 
-> :warning: **Kurs programowania obiektowego w JavaScript -30% z kodem: `nerdboard`** :arrow_right: [devmentor.pl/oop](https://devmentor.pl/oop)
+> :warning: **Kurs programowania obiektowego w JavaScript -30% z kodem: `nerdbord`** :arrow_right: [devmentor.pl/oop](https://devmentor.pl/oop)
 
 # Cel warsztatu
 
