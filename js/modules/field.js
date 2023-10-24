@@ -36,4 +36,12 @@ export class Field {
     setEmpty() {
         this.piece = null;
     }
+
+    isPieceOwner(playerIndex) {
+        if (this.piece) {
+            return this.piece.playerIndex === playerIndex;
+        }
+
+        return false;
+    }
 } 

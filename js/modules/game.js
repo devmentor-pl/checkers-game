@@ -37,7 +37,11 @@ export class CheckersGame extends Game { // 3. dziedziczenie
   #printer;
   #moves = [];
 
+  #selectedPiece;
 
+  get selectedPiece() {
+    return this.#selectedPiece;
+  }
 
   static getStartingPositionForBlack(boardSize = 10, rowsCount = 4) {
     const coords = {};
@@ -98,7 +102,34 @@ export class CheckersGame extends Game { // 3. dziedziczenie
     return playerIndex;
   }
 
+  selectPiece(coord, playerIndex) {
+    const field = this.#board.getField(coord);
+    if (!field.isEmpty() && field.isPieceOwner(playerIndex) && this.#getActivePlayerIndex() === playerIndex) {
+      this.#selectedPiece = coord;
+      const coords = this.#board.getAvailableMoves(coord);
 
+      this.#printer.resetFields();
+      this.#printer.selectFields(coords);
+    } else {
+      this.#printer.resetFields();
+      this.#resetPiece();
+    }
+  }
+
+  move(notation) {
+    const playerIndex = this.#getActivePlayerIndex();
+
+    this.#board.move(
+      notation,
+      playerIndex,
+    );
+
+    this.#moves.push({ notation });
+
+    this.#renderBoard();
+    this.#renderPanel();
+
+  }
 
 
   getActivePlayer() { // nie mnóżmy zależności!
@@ -110,6 +141,37 @@ export class CheckersGame extends Game { // 3. dziedziczenie
   }
 
   /* poniżej abstrakcja */
+
+  #resetPiece() {
+    this.#selectedPiece = null;
+  }
+
+  #renderBoard() {
+    this.#printer.renderBoard(this.#board.fieldsList);
+  }
+
+  #renderPanel() {
+    this.#printer.renderPanel({
+      activePlayerIndex: this.#getActivePlayerIndex(),
+    });
+  }
+
+  #setPlayerScore(playerIndex, score) {
+    this._players[playerIndex].score = score;
+  }
+
+  #getPlayerScore(playerIndex) {
+    return this._players[playerIndex].score;
+  }
+
+  #incrementPlayerScore(playerIndex, value) {
+    this.#setPlayerScore(playerIndex, this.#getPlayerScore(playerIndex) + value);
+  }
+
+  #getPlayersScore() { // bardzo podobna nazwa do getPlayer[s]Score() - unikamy
+    return this._players.map(player => player.score)
+  }
+
 
   #insertPiecesOnBoard(pieces, playerIndex) {
     this.#board.insertPieces(pieces, playerIndex);
